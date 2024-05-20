@@ -83,6 +83,10 @@ spec:
     - name: web
       port: 3000
       targetPort: 3000
+status:
+  loadBalancer:
+    ingress:
+    - ip: 172.16.222.61
  
 ---
  
