@@ -36,6 +36,8 @@ spec:
       labels:
         app: prometheus
     spec:
+      imagePullSecrets:
+      - name: dockerhub-image-pull-secret-ankur
       containers:
         - name: prometheus
           image: prom/prometheus
