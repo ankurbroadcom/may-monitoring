@@ -25,10 +25,10 @@ spec:
     required:
       nodeSelectorTerms:
       - matchExpressions:
-        - key: kubernetes.io/os
+        - key: kubernetes.io/hostname
           operator: In
           values:
-          - linux
+          - kube-node1
 
 ---
 apiVersion: v1
