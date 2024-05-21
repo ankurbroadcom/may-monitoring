@@ -19,6 +19,14 @@ spec:
   storageClassName: local 
   local:
       path: /var/lib/influxdb/ 
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/os
+          operator: In
+          values:
+          - linux
 
 ---
 apiVersion: v1
@@ -66,10 +74,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: influxdb
+  namespace: monitoring
 spec:
+  type: NodePort
+  externalIPs:
+    - 172.16.222.61 
   selector:
     app: influxdb
   ports:
-    - protocol: TCP
+    - name: TCP
       port: 8086
       targetPort: 8086
+---
