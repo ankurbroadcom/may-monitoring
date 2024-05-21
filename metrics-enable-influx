@@ -8,4 +8,4 @@ spec:
     enabled: true
     metrics-sink:
       url: "http://172.16.222.61:31877/api/v1/write"
-      data-format: "influx"
+      data-format: "influxdb"
