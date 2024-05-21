@@ -19,8 +19,9 @@ spec:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Delete 
   storageClassName: local 
+  volumeMode: Filesystem
   local:
-      path: /var/lib/
+      path: /var/lib/influxdb
   nodeAffinity:
     required:
       nodeSelectorTerms:
@@ -42,6 +43,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
+  storageClassName: local
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -69,7 +71,7 @@ spec:
         - containerPort: 8086
         volumeMounts:
         - name: influxdb-storage
-          mountPath: /var/lib/
+          mountPath: /var/lib/influxdb
       volumes:
       - name: influxdb-storage
         persistentVolumeClaim:
