@@ -20,7 +20,7 @@ spec:
   persistentVolumeReclaimPolicy: Delete 
   storageClassName: local 
   local:
-      path: /var/lib/influxdb/ 
+      path: /var/lib/
   nodeAffinity:
     required:
       nodeSelectorTerms:
