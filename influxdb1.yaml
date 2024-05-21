@@ -60,6 +60,8 @@ spec:
       labels:
         app: influxdb
     spec:
+      securityContext:
+        runAsUser: 0
       containers:
       - name: influxdb
         image: influxdb:latest
