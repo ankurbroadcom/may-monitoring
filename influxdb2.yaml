@@ -27,9 +27,7 @@ spec:
       nodeSelectorTerms:
       - matchExpressions:
         - key: kubernetes.io/hostname
-          operator: In
-          values:
-          - kube-node1
+          operator: Exists
 
 ---
 apiVersion: v1
