@@ -82,7 +82,7 @@ spec:
   selector:
     app: influxdb
   ports:
-    - name: TCP
+    - name: influxdb-port
       port: 8086
       targetPort: 8086
 ---
