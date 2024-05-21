@@ -60,6 +60,8 @@ spec:
       labels:
         app: influxdb
     spec:
+      imagePullSecrets:
+      - name: dockerhub-image-pull-secret-ankur
       securityContext:
         runAsUser: 0
       containers:
