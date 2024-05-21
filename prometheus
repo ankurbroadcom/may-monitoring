@@ -46,6 +46,8 @@ metadata:
   name: prometheus
   namespace: monitoring
 spec:
+  externalIPs:
+    - 172.16.222.61
   selector:
     app: prometheus
   ports:
