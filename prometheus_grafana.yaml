@@ -73,7 +73,7 @@ data:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grafana
+  name: grafana-dummy
   namespace: monitoring
 spec:
   type: LoadBalancer
@@ -81,13 +81,24 @@ spec:
     app: grafana
   ports:
     - name: web
+      port: 30001
+      targetPort: 30001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  type: NodePort
+  externalIPs:
+    - 172.16.222.61 
+  selector:
+    app: grafana
+  ports:
+    - name: web
       port: 3000
       targetPort: 3000
-status:
-  loadBalancer:
-    ingress:
-    - ip: 172.16.222.61
- 
 ---
  
 apiVersion: apps/v1
