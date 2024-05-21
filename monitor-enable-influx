@@ -1,0 +1,11 @@
+apiVersion: esx.vmware.com/v1alpha1
+kind: HostConfiguration
+metadata:
+  name: ecs-stream-metrics-to-prom
+  namespace: esx-system
+spec:
+  metrics-collection:
+    enabled: true
+    metrics-sink:
+      url: "http://172.16.222.61:31877/api/v1/write"
+      data-format: "influx"
