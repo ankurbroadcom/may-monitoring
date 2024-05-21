@@ -38,6 +38,8 @@ metadata:
   name: influxdb
   namespace: monitoring
 spec:
+  imagePullSecrets:
+  - name: dockerhub-image-pull-secret-ankur
   replicas: 1
   selector:
     matchLabels:
@@ -59,3 +61,15 @@ spec:
       - name: influxdb-storage
         persistentVolumeClaim:
           claimName: influxdb-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb
+spec:
+  selector:
+    app: influxdb
+  ports:
+    - protocol: TCP
+      port: 8086
+      targetPort: 8086
