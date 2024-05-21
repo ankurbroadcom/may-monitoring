@@ -16,8 +16,8 @@ spec:
     app: prometheus
   ports:
     - name: web
-      port: 90901
-      targetPort: 90901
+      port: 19090
+      targetPort: 19090
 ---
 apiVersion: v1
 kind: Service
